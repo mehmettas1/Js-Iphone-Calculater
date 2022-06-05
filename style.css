@@ -39,7 +39,7 @@
 #inputVal {
     width: 100%;
     background-color: transparent;
-    border: none;
+    border: 2px solid blue;
     color: #fff;
 }
 
