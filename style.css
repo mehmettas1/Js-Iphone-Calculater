@@ -82,11 +82,10 @@
 }
 
 .row1 button, .row2 button, .row3 button{
-    background-color: var(--tusbcgop);
+    background-color: #A5A5A5;
     color: var(--siyah);
 }
-
-.row1 button, .row2 button, .row3 button, .row4 button {
+ .row4 button {
     background-color: var(--tusbcgsari);
 }
 
