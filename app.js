@@ -17,10 +17,12 @@ container.addEventListener("click",(e) => {
 
 
 
-if(!(e.target.innerText == "=" || e.target.innerText == "AC")) {
+// if(!(e.target.innerText == "=" || e.target.innerText == "AC")) {
+//     operation.textContent += e.target.textContent;
+// }
+if(e.target.className === "btn"){
     operation.textContent += e.target.textContent;
 }
-
 
 if(
     e.target.innerHTML == "+" ||
