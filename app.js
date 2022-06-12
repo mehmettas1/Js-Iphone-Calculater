@@ -1,41 +1,86 @@
 let container = document.querySelector(".container");
 
-let result = document.querySelector(".result");
+let result = document.querySelector(".result"); //previous-display
 
-let operation = document.getElementById("operation");
+let meta = document.getElementById("operation"); //current-display
 
-let equal = document.querySelector(".equal");
-equal.addEventListener("click",() => {
-    myFunction();
-});
+let tslr= document.querySelector(".tuslar");  //btnContainer
 
-container.addEventListener("click",(e) => {
-    if(e.target.classList.contains("AC")) {
-        result.innerHTML = "";
-        operation.innerHTML = "";
+let currOperand = "";
+let previousOperand = "";
+
+let operation = "";
+
+tslr.addEventListener("click",(e) =>{
+  
+
+    if(e.target.classList.contains("num")){
+       appendNumber(e.target.textContent);
+       updateDisplay();
     }
-
-
-
-// if(!(e.target.innerText == "=" || e.target.innerText == "AC")) {
-//     operation.textContent += e.target.textContent;
-// }
-if(e.target.className === "btn"){
-    operation.textContent += e.target.textContent;
-}
-
-if(
-    e.target.innerHTML == "+" ||
-    e.target.innerHTML == "-" ||
-    e.target.innerHTML == "*" ||
-    e.target.innerHTML == "/" 
-) {
-    result.textContent += operation.textContent;
-    operation.textContent ="";
-}
+    
+    if(e.target.classList.contains("op")){
+        chooseOperator(e.target.textContent);
+        updateDisplay();
+     }
+     if(e.target.classList.contains("equal")){
+       calculate();
+        updateDisplay();
+     }
 });
 
-function myFunction() {
-    result.textContent += operation.textContent;
-    operation.innerText = eval(result.innerText);
-}
+const appendNumber = (num) => {
+    if (currOperand === '0' && num === '0') return;
+    if (currOperand === '0' && num !== '.') {
+        currOperand = num;
+        return;
+      }
+    if(num ==='.'&&currOperand.includes('.'))return;
+   
+    if(currOperand.length > 0)return;
+    currOperand += num;
+};
+
+const updateDisplay = ()=> {
+   meta.textContent = currOperand;
+   result.textContent =  `${previousOperand} ${operation}`;
+};
+
+const chooseOperator = (opr) => {
+    if(previousOperand){ 
+        calculate();
+    }
+   
+    operation= opr;
+    previousOperand = currOperand;
+    currOperand ="";
+    
+};
+
+const calculate = () => {
+    let calculation = 0;
+    const prev = Number(previousOperand);
+    const current = Number(currOperand);
+
+    switch (operation) {
+        case "+":
+            calculation = prev+current;
+            
+            break;
+        case  "-":
+           calculation = prev-current;
+
+        break;
+        case  "x":
+            calculation = prev*current;
+ 
+         break;
+         case  "/":
+            calculation = prev/current;
+ 
+         break;
+         default:
+         break;
+    }
+    currOperand = calculation;
+};
