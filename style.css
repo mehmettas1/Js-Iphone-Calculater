@@ -1,127 +1,108 @@
-@import './theme.css';
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-weight: 500;
-    box-sizing: border-box;
-}
-
-.container {
-    height: 600px;
-    width: 400px;
-    background-color: var(--siyah);
-    margin: 10px auto;
-    padding: 10px;
-    border-radius: 30px;
-    overflow: hidden;
-}
-
-/* .ekran { */
-    /* height:165px; */
-    /* width:340px; */
-    /* margin: auto; */
-    /* font-size: 50px; */
-    /* padding: 20px; */
-/*      */
-/* } */
-
-
-.ekran {
-    width: 320px;
-    height: 120px;
-    border: 2px solid black;
-    background-color: grey;
-    border-radius: 5px;
-    margin: 1rem 0 2rem 1.3rem;
-    overflow: hidden;
+  }
+  
+  body {
+    font-family: "Helvetica Neue", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .calculator {
+    background: black;
+    border-radius: 50px;
+    color: white;
+    height: 800px;
+    width: 80%;
+    max-width: 500px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-  }
-  .result {
-    /* border: 2px solid red; */
-    height: 60px;
-    font-size: 1.5rem;
-    padding-right: 10px;
-    display: flex;
     align-items: center;
-    justify-content: flex-end;
+  }
+  
+  .display {
+    height: 15rem;
+    width: 100%;
+    text-align: right;
+    padding: 1rem;
+    font-size: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .previous-display {
+    opacity: 0.5;
+    font-size: 1.5rem;
     overflow: hidden;
   }
-  #operation {
-    /* border: 2px solid blue; */
-    height: 60px;
-    font-size: 2rem;
-    padding-right: 10px;
+  
+  .buttons-container {
+    width: 100%;
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+  
+  .button {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-  }
-
-.tuslar {
-    display: grid;
-    grid-template-columns: repeat(4, 72.5px);
-    grid-template-rows: repeat(5, 72.5px);
-    color: var(--tuscolor);
-    gap: 10px;
     justify-content: center;
-    margin-bottom: 15px;
-    text-align: center;
-
-}
-
-.tuslar button {
-    background-color: var(--tusbcgsayi);
-    color: white;
-    border: none;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.tuslar button:hover {
-    opacity: 0.5;
-    cursor: pointer;
-}
-
-.row1 button, .row2 button, .row3 button{
-    background-color: #A5A5A5;
-    color: var(--siyah);
-}
- .row4 button {
-    background-color: var(--tusbcgsari);
-}
-
-.row8 button, .row12 button, .row16 button, .row19 button {
-    background-color: var(--tusbcgsari);
-}
-
-
-.tuslar .box button{
-    width: 72.5px;
-    height:72.5px;
+    background: #333;
     border-radius: 50%;
-    font-size: 35px;
-}
-
-.container .tuslar .row17 {
-    grid-row: 5/6;;
-    grid-column: 1/3;
-    /* width: 144px; */
-}
-
-.container .tuslar .row17 button{
-    width:154px;
-    border-radius: 36px;
-    text-align: left;
-    padding-left: 25px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
+    cursor: pointer;
+    font-size: 3rem;
+    height: 6rem;
+    width: 6rem;
+    transition: filter 0.3s;
+  }
+  
+  .button.function {
+    color: black;
+    background: #a5a5a5;
+  }
+  
+  .button.operator {
+    background: #f1a33c;
+  }
+  
+  .button.number-0 {
+    border-radius: 3rem;
+    grid-column: 1 / span 2;
+    justify-content: flex-start;
+    padding-left: 2rem;
+    width: 12rem;
+  }
+  
+  .button:hover {
+    opacity: 0.5;
+  }
+  
+  @media screen and (max-width: 576px) {
+    .calculator {
+      width: 350px;
+      height: 600px;
+    }
+    .display {
+      height: 10rem;
+      font-size: 3rem;
+    }
+  
+    .button {
+      font-size: 1.7rem;
+      height: 4rem;
+      width: 4rem;
+    }
+    .button.number-0 {
+      border-radius: 2rem;
+      padding-left: 1.3rem;
+      width: 8rem;
+    }
+  }
+  
