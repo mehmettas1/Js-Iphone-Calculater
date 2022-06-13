@@ -1,4 +1,6 @@
 [Click Me](https://mehmettas1.github.io/Js-Iphone-Calculater/)
+![Animation](https://user-images.githubusercontent.com/101858286/173331972-c0675d9d-a3e7-47b5-a92f-aed41d174689.gif)
+
 
 <p>Clarusway<img align="right"
   src="https://secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg"  width="15px"></p>
